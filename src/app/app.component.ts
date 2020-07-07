@@ -15,6 +15,14 @@ export class AppComponent {
     {
       title: 'Jeu du Pendu',
       route: 'games/hangman'
+    },
+    {
+      title: 'Solitaire',
+      route: 'games/solitaire'
+    },
+    {
+      title: 'Simon',
+      route: 'games/simon'
     }
   ];
 }

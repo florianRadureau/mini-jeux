@@ -1,0 +1,38 @@
+@import "variables";
+
+.simon {
+  background-color: $white;
+  margin: 50px 15%;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+
+  &__svg-container {
+    max-height: 50vh;
+    max-width: 50vh;
+    margin: auto;
+    overflow: hidden;
+    display: block;
+
+    #green {
+      fill: #6CFC14;
+    }
+
+    #red {
+      fill: #FC1608;
+    }
+
+    #orange {
+      fill: #FCB408;
+    }
+
+    #blue {
+      fill: #29ABE2;
+    }
+  }
+
+  &__start-button {
+    margin: auto;
+  }
+}
