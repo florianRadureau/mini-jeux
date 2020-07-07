@@ -1,0 +1,12 @@
+@import "variables";
+
+.action-button {
+  margin: 3px;
+  cursor: pointer;
+  background-color: $primary;
+  border: none;
+  border-radius: 5px;
+  color: $grey-light;
+  padding: 10px;
+  @include fontFamily;
+}

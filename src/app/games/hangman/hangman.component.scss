@@ -1,0 +1,66 @@
+@import 'variables';
+
+.hangman {
+  background-color: $white;
+  margin: 50px 15%;
+  padding: 15px;
+  border-radius: 15px;
+
+  &__svg-container {
+    max-height: 50vh;
+    max-width: 50vh;
+    margin: auto;
+    overflow: hidden;
+
+    &__svg-content {
+      height: auto;
+    }
+  }
+
+  &__letters-buttons {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 25px;
+
+    &__button {
+      margin: 3px;
+      cursor: pointer;
+      background-color: $primary;
+      border: none;
+      border-radius: 5px;
+      color: $grey-light;
+      padding: 10px;
+      @include fontFamily;
+    }
+
+    .letter-found {
+      background-color: $primary-light;
+      color: $primary-dark;
+    }
+
+    .letter-not-found {
+      background-color: $grey;
+      color: $grey-light;
+    }
+  }
+
+  &__action-buttons {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__characters {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__character {
+      margin: 5px 15px;
+      @include fontFamily;
+    }
+  }
+}

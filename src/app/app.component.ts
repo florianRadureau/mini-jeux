@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'mini-jeux';
+  routes = [
+    {
+      title: 'Accueil',
+      route: 'home'
+    },
+    {
+      title: 'Jeu du Pendu',
+      route: 'games/hangman'
+    }
+  ];
 }

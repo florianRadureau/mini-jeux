@@ -1,0 +1,48 @@
+<div class="hangman">
+  <div class="hangman__svg-container">
+    <svg version="1.1" viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet" class="hangman__svg-container__svg-content">
+      <g *ngIf="wonGame === undefined">
+        <line *ngIf="errorsCount >= 1" x1="100" y1="492" x2="200" y2="492" style="stroke:rgb(0,0,0);stroke-width:16" />
+        <line *ngIf="errorsCount >= 2" x1="150" y1="500" x2="150" y2="0" style="stroke:rgb(0,0,0);stroke-width:16" />
+        <line *ngIf="errorsCount >= 3" x1="150" y1="8" x2="350" y2="8" style="stroke:rgb(0,0,0);stroke-width:16" />
+        <line *ngIf="errorsCount >= 4" x1="350" y1="0" x2="350" y2="70" style="stroke:rgb(0,0,0);stroke-width:16" />
+        <circle *ngIf="errorsCount >= 5" stroke-width="10" stroke-miterlimit="10" cx="350" cy="95" r="50" style="stroke:rgb(0,0,0);stroke-width:16" fill="#ffffff" />
+        <line *ngIf="errorsCount >= 6" x1="350" y1="150" x2="350" y2="300" style="stroke:rgb(0,0,0);stroke-width:16" />
+        <line *ngIf="errorsCount >= 7" x1="280" y1="200" x2="350" y2="200" style="stroke:rgb(0,0,0);stroke-width:16" />
+        <line *ngIf="errorsCount >= 8" x1="350" y1="200" x2="420" y2="200" style="stroke:rgb(0,0,0);stroke-width:16" />
+        <line *ngIf="errorsCount >= 9" x1="280" y1="390" x2="352" y2="295" style="stroke:rgb(0,0,0);stroke-width:16" />
+        <line *ngIf="errorsCount === 10" x1="430" y1="390" x2="350" y2="300" style="stroke:rgb(0,0,0);stroke-width:16" />
+      </g>
+      <g *ngIf="wonGame === false">
+        <circle stroke-width="10" cx="250" cy="250" r="200" fill="#ffffff" stroke="#000000"></circle>
+        <path d="M 120,120 l 100,100 M 120,220 l 100,-100" stroke="#000000" stroke-width="10" />
+        <path d="M 280,120 l 100,100 M 280,220 l 100,-100" stroke="#000000" stroke-width="10" />
+        <polyline points="120,370,163,320,206,370,249,320,292,370,335,320,378,370" stroke="#000000" stroke-width="10" fill="none"></polyline>
+      </g>
+      <g *ngIf="wonGame === true">
+        <circle stroke-width="10" cx="250" cy="250" r="200" fill="#ffffff" stroke="#000000"></circle>
+        <path  d = "M 120,220 Q170,120 220,220" fill="none" stroke-width="10" stroke="#000000"/>
+        <path  d = "M 270,220 Q320,120 370,220" fill="none" stroke-width="10" stroke="#000000"/>
+        <path  d = "M 120,320 Q250,400 380,320" fill="none" stroke-width="10" stroke="#000000"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hangman__letters-buttons" *ngIf="wonGame === undefined">
+    <button class="hangman__letters-buttons__button"
+            *ngFor="let letterButton of lettersButtons"
+            [disabled]="letterButton.status !== undefined || wonGame !== undefined"
+            [ngClass]="{'letter-found': !!letterButton.status, 'letter-not-found': letterButton.status === false}"
+            (click)="onLetterButtonClick(letterButton)"
+    >
+      {{letterButton.letter}}
+    </button>
+  </div>
+  <div class="hangman__action-buttons" *ngIf="wonGame !== undefined">
+    <app-action-button title="Rejouer" (onPressed)="replayGame()"></app-action-button>
+  </div>
+  <div class="hangman__characters">
+    <div class="hangman__characters__character" *ngFor="let character of currentWord">
+      {{ !!character.status || wonGame !== undefined ? character.letter : '_' }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+@import 'shared/styles/variables';
+
+.top-bar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 50px;
+  display: flex;
+  background-color: $primary-dark;
+  justify-content: center;
+
+  &__title {
+    margin: auto;
+    color: $white;
+    @include fontFamily;
+  }
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+
+  &__nav-bar {
+    border-top: #58a5ef 1px solid;;
+    width: 100px;
+    position: fixed;
+    left: 0;
+    top: 50px;
+    height: calc(100vh - 51px);
+    background-color: $primary;
+
+    .route {
+      height: 50px;
+      background-color: $primary-dark;
+      margin: 10px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      cursor: pointer;
+
+      &__title {
+        margin: auto;
+        font-size: 12px;
+        color: $grey-light;
+        @include fontFamily;
+      }
+    }
+
+    .route:hover {
+      box-shadow: 0 0 8px darkgrey;
+      .route__title {
+        color: $white;
+      }
+    }
+
+    .active-route {
+      background-color: $primary-light;
+    }
+  }
+
+  &__content {
+    background-color: $grey-light;
+    position: fixed;
+    width: calc(100vw - 100px);
+    height: calc(100vh - 50px);
+    overflow: auto;
+    top: 50px;
+    left: 100px;
+  }
+}
